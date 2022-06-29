@@ -33,16 +33,16 @@ class _SplashScreenState extends State<SplashScreen> {
   Users? loggedInUser;
 
   @override
-  void initState() async {
+  void initState() {
     super.initState();
-    if (user == null) {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.remove('email');
-      Navigator.pushAndRemoveUntil(
-          (context),
-          MaterialPageRoute(builder: (context) => SignInScreen()),
-          (route) => false);
-    }
+    // if (user == null) {
+    //   SharedPreferences prefs = await SharedPreferences.getInstance();
+    //   prefs.remove('email');
+    //   Navigator.pushAndRemoveUntil(
+    //       (context),
+    //       MaterialPageRoute(builder: (context) => SignInScreen()),
+    //       (route) => false);
+    // }
     FirebaseFirestore.instance
         .collection("users")
         .doc(user!.uid)

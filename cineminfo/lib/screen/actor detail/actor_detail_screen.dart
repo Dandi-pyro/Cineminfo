@@ -110,15 +110,18 @@ class _CastDetailScreenState extends State<CastDetailScreen> {
                     ),
                     Padding(
                       padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-                      child: Text(
-                        viewModel.castDetail!.biography!,
-                        style: const TextStyle(color: Colors.white),
-                        textAlign: TextAlign.justify,
-                        maxLines: readMore ? 30 : 3,
-                        overflow: readMore
-                            ? TextOverflow.visible
-                            : TextOverflow.ellipsis,
-                      ),
+                      child: viewModel.castDetail!.biography!.isEmpty
+                          ? Text('Unknown',
+                              style: TextStyle(color: Colors.white))
+                          : Text(
+                              viewModel.castDetail!.biography!,
+                              style: const TextStyle(color: Colors.white),
+                              textAlign: TextAlign.justify,
+                              maxLines: readMore ? 50 : 3,
+                              overflow: readMore
+                                  ? TextOverflow.visible
+                                  : TextOverflow.ellipsis,
+                            ),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 12),
@@ -156,7 +159,7 @@ class _CastDetailScreenState extends State<CastDetailScreen> {
                     ),
                     _listTvs(viewModel.castDetail!.tvCredits!),
                     getButton(int.parse(viewModel.castDetail!.id!),
-                            widget.user.movieFavourite!)
+                            widget.user.actorFavourite!)
                         ? Padding(
                             padding: const EdgeInsets.all(20),
                             child: Container(
@@ -216,7 +219,8 @@ class _CastDetailScreenState extends State<CastDetailScreen> {
   Widget _listMovies(List<Movie> movies) {
     return movies.isEmpty
         ? const Center(
-            child: Text('No movie casting'),
+            child:
+                Text('No movie casting', style: TextStyle(color: Colors.white)),
           )
         : Padding(
             padding: const EdgeInsets.only(left: 20),
@@ -343,7 +347,10 @@ class _CastDetailScreenState extends State<CastDetailScreen> {
   Widget _listTvs(List<TV> tvs) {
     return tvs.isEmpty
         ? const Center(
-            child: Text('No TVs casting'),
+            child: Text(
+              'No TVs casting',
+              style: TextStyle(color: Colors.white),
+            ),
           )
         : Padding(
             padding: const EdgeInsets.only(left: 20),

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:cineminfo/model/color/color_hex.dart';
 import 'package:cineminfo/model/user/user_model.dart';
 import 'package:cineminfo/screen/home/home_screen.dart';
@@ -85,7 +83,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           validator: (value) {
                             RegExp regex = RegExp(r'^.{3,}$');
                             if (value!.isEmpty) {
-                              return ("First Name cannot be Empty");
+                              return ("Name cannot be Empty");
                             }
                             if (!regex.hasMatch(value)) {
                               return ("Enter Valid name(Min. 3 Character)");

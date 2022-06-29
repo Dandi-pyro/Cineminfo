@@ -119,7 +119,7 @@ class _TvDetailScreenState extends State<TvDetailScreen> {
                         viewModel.tvDetail!.overview!,
                         style: const TextStyle(color: Colors.white),
                         textAlign: TextAlign.justify,
-                        maxLines: readMore ? 10 : 3,
+                        maxLines: readMore ? 20 : 3,
                         overflow: readMore
                             ? TextOverflow.visible
                             : TextOverflow.ellipsis,
@@ -194,7 +194,7 @@ class _TvDetailScreenState extends State<TvDetailScreen> {
                     ),
                     _listTvs(viewModel.tvDetail!.recomendationTv),
                     getButton(int.parse(viewModel.tvDetail!.id!),
-                            widget.user.movieFavourite!)
+                            widget.user.tvFavourite!)
                         ? Padding(
                             padding: const EdgeInsets.all(20),
                             child: Container(

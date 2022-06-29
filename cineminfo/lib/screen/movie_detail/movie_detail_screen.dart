@@ -121,7 +121,7 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
                         viewModel.movieDetail!.overview!,
                         style: const TextStyle(color: Colors.white),
                         textAlign: TextAlign.justify,
-                        maxLines: readMore ? 10 : 3,
+                        maxLines: readMore ? 20 : 3,
                         overflow: readMore
                             ? TextOverflow.visible
                             : TextOverflow.ellipsis,
@@ -225,13 +225,13 @@ class _MovieDetailScreenState extends State<MovieDetailScreen> {
   }
 
   Widget _imageMovie(DetailMovieViewModel viewModel) {
-    return viewModel.movieDetail!.backdropPath!.isEmpty
+    return viewModel.movieDetail!.backdropPath == null
         ? Container(
-            height: MediaQuery.of(context).size.height / 3,
+            height: MediaQuery.of(context).size.height / 4,
             width: double.infinity,
             decoration: const BoxDecoration(
                 image: DecorationImage(
-                    image: AssetImage('assets/images/noImage.png'),
+                    image: AssetImage('assets/images/noImageDark.jpeg'),
                     fit: BoxFit.cover)),
           )
         : ClipPath(

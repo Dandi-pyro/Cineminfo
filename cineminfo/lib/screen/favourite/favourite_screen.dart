@@ -192,8 +192,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                         onTap: () {},
                       );
                     },
-                    separatorBuilder: (context, index) =>
-                        const VerticalDivider(),
+                    separatorBuilder: (context, index) => const Divider(),
                     itemCount: viewModel.movieFavourite.length),
               ),
             ],
@@ -301,8 +300,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                         onTap: () {},
                       );
                     },
-                    separatorBuilder: (context, index) =>
-                        const VerticalDivider(),
+                    separatorBuilder: (context, index) => const Divider(),
                     itemCount: viewModel.tvFavourite.length),
               ),
             ],
@@ -411,8 +409,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                         onTap: () {},
                       );
                     },
-                    separatorBuilder: (context, index) =>
-                        const VerticalDivider(),
+                    separatorBuilder: (context, index) => const Divider(),
                     itemCount: viewModel.actorFavourite.length),
               ),
             ],
