@@ -82,11 +82,15 @@ class _SignUpScreenState extends State<SignUpScreen> {
                               TextStyle(color: Colors.white.withOpacity(0.9)),
                           validator: (value) {
                             RegExp regex = RegExp(r'^.{3,}$');
+                            RegExp regExp = RegExp('[a-zA-Z]');
                             if (value!.isEmpty) {
                               return ("Name cannot be Empty");
                             }
                             if (!regex.hasMatch(value)) {
                               return ("Enter Valid name(Min. 3 Character)");
+                            }
+                            if (!regExp.hasMatch(value)) {
+                              return ("Enter Valid Name");
                             }
                             return null;
                           },
@@ -161,15 +165,14 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           style:
                               TextStyle(color: Colors.white.withOpacity(0.9)),
                           validator: (value) {
+                            String pattern = r'(^(?:[+0]9)?[0-9]{10,12}$)';
+                            RegExp regExp = RegExp(pattern);
                             if (value!.isEmpty) {
-                              return ("Please Enter Your Phone");
+                              return ("Enter Your Phone Number");
                             }
-                            // // reg expression for email validation
-                            // if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
-                            //     .hasMatch(value)) {
-                            //   return ("Please Enter a valid email");
-                            // }
-                            return null;
+                            if (!regExp.hasMatch(value)) {
+                              return ("Please Enter A Valid Phone Number");
+                            }
                           },
                           onSaved: (value) {
                             nameEditingController.text = value!;
